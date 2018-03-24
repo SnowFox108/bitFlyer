@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace bitFlyer
 {
@@ -10,11 +11,15 @@ namespace bitFlyer
         {
             _blockSize = blockSize;
         }
-
-        public IEnumerable<Block> BuildBlocks(IEnumerable<Transaction> transactions)
+        /// <summary>
+        /// the mechanism of how to build can be always improved
+        /// </summary>
+        /// <param name="transactions"></param>
+        /// <returns></returns>
+        public List<Block> BuildBlocks(IEnumerable<Transaction> transactions)
         {
             var blocks = new List<Block>();
-            foreach (var transaction in transactions)
+            foreach (var transaction in transactions.OrderByDescending(t => t.Rate))
                 InsertToBlock(blocks, transaction);
             return blocks;
         }

@@ -4,6 +4,6 @@ namespace bitFlyer
 {
     public interface IBlockProcessingService
     {
-        IEnumerable<Block> BuildBlocks(IEnumerable<Transaction> transactions);
+        List<Block> BuildBlocks(IEnumerable<Transaction> transactions);
     }
 }

@@ -7,7 +7,7 @@ namespace bitFlyer
     public class OutputResult : IOutputResult
     {
 
-        public void Execute(IEnumerable<Block> blocks)
+        public void Execute(List<Block> blocks)
         {
             var result = blocks.First(b => b.TotalFee == blocks.Max(m => m.TotalFee));
             Console.WriteLine($"Answer is {result.TotalFee + result.Reward}");

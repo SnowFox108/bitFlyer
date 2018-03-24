@@ -4,6 +4,6 @@ namespace bitFlyer
 {
     public interface IOutputResult
     {
-        void Execute(IEnumerable<Block> blocks);
+        void Execute(List<Block> blocks);
     }
 }
